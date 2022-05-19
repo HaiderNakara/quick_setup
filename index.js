@@ -23,9 +23,10 @@ async function questionStackNameList() {
     name: 'stackName',
     type: 'list',
     message: 'What stack do you want to use?',
-    choices: ["Mern", "Mern + Typescript",   ],
-    // choices: ["Mern", "Mern + Typescript", "React(Typescript) + Nestjs + MongoDb", "React", "React(Typescript)", "Nestjs", "Express"
-    // ],
+    // choices: ["Mern", "Mern + Typescript",   ],
+    choices: ["Mern", "Mern + Typescript", "React(Typescript) + Nestjs + MongoDb", "React", "React(Typescript)", "Nestjs",
+    "Nestjs + MongoDb", "Express(Typescript)"
+    ],
 
   });
   console.log(chalk.green(`You have selected ${answer.stackName}`));
@@ -82,7 +83,6 @@ app.listen(process.env.PORT || 5000, () => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.get("/", (req: Request, res: Response) => {
         res.send("Hello World!");
-        
     });
     app.listen(process.env.PORT || 5000, () => {
         console.log('Server started on port ${process.env.PORT || 5000}');
@@ -112,15 +112,127 @@ app.listen(process.env.PORT || 5000, () => {
           }
           console.log("The file was saved!");
         });
+    });
+  }
+  if (stackName === "React(Typescript) + Nestjs + MongoDb") {
+    exec(`mkdir ${name} && cd ${name} && npx create-react-app ${name}_frontend --template typescript && cd ${name}_frontend && npm install axios @reduxjs/toolkit react-redux redux react-router-dom react-router && cd .. && nest new ${name}_backend --package-manager npm && cd  ${name}_backend && npm install --save @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
 
-
-
-
-
-
+    });
+  }
+  if (stackName === "React") {
+    exec(`mkdir ${name} && cd ${name} && npx create-react-app ${name}_frontend && cd ${name}_frontend && npm install axios @reduxjs/toolkit react-redux redux react-router-dom react-router && cd ..`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+  }
+  if (stackName === "React(Typescript)") {
+    exec(`mkdir ${name} && cd ${name} && npx create-react-app ${name}_frontend --template typescript && cd ${name}_frontend && npm install axios @reduxjs/toolkit react-redux redux react-router-dom react-router && cd ..`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+  }
+  if(stackName ==="Nestjs") {
+    exec(`mkdir ${name} && cd ${name} && nest new ${name}_backend --package-manager npm && cd ${name}_backend && npm install --save  swagger-ui-express`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+  }
+  if(stackName ==="Nestjs + MongoDb") {
+    exec(`mkdir ${name} && cd ${name} && nest new ${name}_backend --package-manager npm && cd ${name}_backend && npm install --save @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+  }
+  if(stackName === "Express(Typescript)") {
+    exec(`mkdir ${name} && cd ${name} && npm init -y && npm install express mongoose dotenv nodemon body-parser cors && npm i -D typescript ts-node && mkdir src &&cd ..`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      fs.writeFile(`${name}/${name}_backend/src/index.ts`, `import express from "express";
+      import dotenv from "dotenv";
+      import cors from "cors";
+      import bodyParser from "body-parser";
+      import {Request,  Response} from 'express';
+      const app = express();
+      app.use(cors());
+      app.use(bodyParser.json());
+      app.use(bodyParser.urlencoded({ extended: true }));
+      app.get("/", (req: Request, res: Response) => {
+          res.send("Hello World!");
+      });
+      app.listen(process.env.PORT || 5000, () => {
+          console.log('Server started on port ${process.env.PORT || 5000}');
+      });`, function (err) {
+          if (err) {
+            return console.log(err);
+          }
+          console.log("The file was saved!");
+        });
+  
+        fs.writeFile(`${name}/${name}_backend/tsconfig.json`, `{
+        "compilerOptions": {
+          "target": "es2016",                                  
+          "module": "commonjs",                                
+          "rootDir": "./src",                                  
+          "moduleResolution": "node",                       
+          "outDir": "./dist",                                  
+          "esModuleInterop": true,                          
+          "forceConsistentCasingInFileNames": true,            
+          "strict": true,                                      
+          "skipLibCheck": true                                
+        }
+      }`,
+          function (err) {
+            if (err) {
+              return console.log(err);
+            }
+            console.log("The file was saved!");
+          });
+    });
+  }
+  if(stackName === "Express") {
+    exec(`mkdir ${name} && cd ${name} && npm init -y && npm install express mongoose dotenv nodemon body-parser cors`, (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      fs.writeFile(`${name}/${name}_backend/index.js`, `
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import bodyParser from "body-parser";
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+app.listen(process.env.PORT || 5000, () => {
+    console.log('Server started on port ${process.env.PORT || 5000}');
+});`, function (err) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("The file was saved!");
+      });
     });
   }
   spinner.success(`Project ${name} created successfully`);
 }
+
 await main();
 await questionStackNameList();
