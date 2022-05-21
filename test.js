@@ -1,6 +1,6 @@
 switch (stackName) {
   case "Mern":
-    createMernProject(name+"_one");
+    createMern(name+"_one");
   case "Mern + Typescript":
     createMernTypescript(name + "_two");
   case "React(Typescript) + Nestjs + MongoDb":
