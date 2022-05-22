@@ -15,6 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk_1 = __importDefault(require("chalk"));
 const inquirer_1 = require("inquirer");
+const nanospinner_1 = require("nanospinner");
 const child_process_1 = require("child_process");
 const util_1 = require("util");
 const react_fn_1 = require("./react_fn");
@@ -23,6 +24,7 @@ const nest_fn_1 = require("./nest_fn");
 const mern_fn_1 = require("./mern_fn");
 let projectName = "projectTry";
 const exec_run = (0, util_1.promisify)(child_process_1.exec);
+// cli  animation
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const answer1 = yield (0, inquirer_1.prompt)({
@@ -51,8 +53,12 @@ function main() {
             ],
         });
         console.log(chalk_1.default.green(`You have selected ${answer.stackName}`));
-        return createProject(projectName, answer.stackName);
-        // return test_all(projectName, answer.stackName);
+        const spinner = (0, nanospinner_1.createSpinner)();
+        spinner.start({ text: "Creating project" });
+        return createProject(projectName, answer.stackName).then(() => {
+            spinner.success({ text: "Project created" });
+            console.log(chalk_1.default.green("cd " + projectName));
+        });
     });
 }
 function createProject(name, stackName) {

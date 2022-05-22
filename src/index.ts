@@ -16,6 +16,7 @@ import {
 import { test_all } from "./test";
 let projectName = "projectTry";
 const exec_run = promisify(exec);
+// cli  animation
 
 async function main() {
   const answer1 = await prompt({
@@ -45,8 +46,12 @@ async function main() {
     ],
   });
   console.log(chalk.green(`You have selected ${answer.stackName}`));
-  return createProject(projectName, answer.stackName);
-  // return test_all(projectName, answer.stackName);
+  const spinner = createSpinner();
+  spinner.start({ text: "Creating project" });
+  return createProject(projectName, answer.stackName).then(() => {
+    spinner.success({ text: "Project created" });
+    console.log(chalk.green("cd " + projectName));
+  });
 }
 
 async function createProject(name: string, stackName: string) {
@@ -82,4 +87,5 @@ async function createProject(name: string, stackName: string) {
       break;
   }
 }
+
 main();
