@@ -24,7 +24,6 @@ const nest_fn_1 = require("./nest_fn");
 const mern_fn_1 = require("./mern_fn");
 let projectName = "projectTry";
 const exec_run = (0, util_1.promisify)(child_process_1.exec);
-// cli  animation
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const answer1 = yield (0, inquirer_1.prompt)({
@@ -33,6 +32,16 @@ function main() {
             message: "What is the name of your project?",
             default() {
                 return "my-project";
+            },
+            validate: (name) => {
+                const regex = /^[a-z0-9]+(_[a-z0-9]+)*$/;
+                if (name.length < 4) {
+                    return "Project name must be at least 3 characters long";
+                }
+                if (!regex.test(name)) {
+                    return "Project name must be snake_case";
+                }
+                return true;
             },
         });
         projectName = answer1.projectName;

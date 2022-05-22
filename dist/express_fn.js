@@ -111,6 +111,13 @@ function createExpress_Ts(name) {
             }
           }
           `);
+        yield fs.writeFile(`${name}/${name}_backend/.env`, `
+          PORT=5000
+          `);
+        yield fs.writeFile(`${name}/${name}_backend/.gitignore`, `
+          node_modules
+          .env
+          `);
         yield exec_run(`cd ${name}/${name}_backend && npm install express mongoose dotenv body-parser cors && npm i -D typescript @types/express @types/node @types/cors nodemon ts-node && cd ..`);
     });
 }
@@ -154,6 +161,13 @@ app.listen(process.env.PORT || 5000, () => {
     }
   }
   `);
+        // add .env
+        yield fs.writeFile(`${name}/${name}_backend/.env`, "PORT=5000");
+        // add .gitignore
+        yield fs.writeFile(`${name}/${name}_backend/.gitignore`, `
+node_modules
+.env
+`);
         yield exec_run(`cd ${name}/${name}_backend && npm install express mongoose dotenv nodemon body-parser cors`);
     });
 }

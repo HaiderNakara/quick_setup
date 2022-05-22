@@ -52,7 +52,7 @@ function createNestJs(name) {
 exports.createNestJs = createNestJs;
 function create_nestjs(name) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield exec_run(`cd ${name} && npx nest new ${name}_backend --package-manager npm && cd ${name}_backend && npm install @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`);
+        yield exec_run(`cd ${name} && npx @nestjs/cli new ${name}_backend --package-manager npm && cd ${name}_backend && npm install @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`);
         yield fs.writeFile(`${name}/${name}_backend/src/main.ts`, `import { NestFactory } from '@nestjs/core';
    import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
    import { AppModule } from './app.module';

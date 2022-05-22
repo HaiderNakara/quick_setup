@@ -159,7 +159,7 @@ async function createExpressJavascript(name) {
   }
 }
 async function create_nestjs(name) {
-  await exec(`cd ${name} && npx nest new ${name}_backend --package-manager npm && cd ${name}_backend && npm install @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`);
+  await exec(`cd ${name} && npx @nestjs/cli new ${name}_backend --package-manager npm && cd ${name}_backend && npm install @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`);
   await fs.writeFile(`${name}/${name}_backend/src/main.ts`,
     `import { NestFactory } from '@nestjs/core';
    import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';

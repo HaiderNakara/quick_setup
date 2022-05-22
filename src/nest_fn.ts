@@ -15,7 +15,7 @@ export async function createNestJs(name: string) {
 
 export async function create_nestjs(name: string) {
   await exec_run(
-    `cd ${name} && npx nest new ${name}_backend --package-manager npm && cd ${name}_backend && npm install @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`
+    `cd ${name} && npx @nestjs/cli new ${name}_backend --package-manager npm && cd ${name}_backend && npm install @nestjs/mongoose mongoose @nestjs/swagger swagger-ui-express`
   );
   await fs.writeFile(
     `${name}/${name}_backend/src/main.ts`,

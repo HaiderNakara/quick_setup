@@ -16,7 +16,6 @@ import {
 import { test_all } from "./test";
 let projectName = "projectTry";
 const exec_run = promisify(exec);
-// cli  animation
 
 async function main() {
   const answer1 = await prompt({
@@ -25,6 +24,16 @@ async function main() {
     message: "What is the name of your project?",
     default() {
       return "my-project";
+    },
+    validate: (name: string) => {
+      const regex = /^[a-z0-9]+(_[a-z0-9]+)*$/;
+      if (name.length < 4) {
+        return "Project name must be at least 3 characters long";
+      }
+      if (!regex.test(name)) {
+        return "Project name must be snake_case";
+      }
+      return true;
     },
   });
   projectName = answer1.projectName;
