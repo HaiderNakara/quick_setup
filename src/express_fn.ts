@@ -80,18 +80,12 @@ export async function createExpress_Ts(name: string) {
           `
   );
 
-  await fs.writeFile(
-    `${name}/${name}_backend/.env`,
-    `
-          PORT=5000
-          `
-  );
+  await fs.writeFile(`${name}/${name}_backend/.env`, `PORT=5000`);
 
   await fs.writeFile(
     `${name}/${name}_backend/.gitignore`,
-    `
-          node_modules
-          .env
+    `node_modules
+    .env
           `
   );
 
@@ -148,9 +142,8 @@ app.listen(process.env.PORT || 5000, () => {
   // add .gitignore
   await fs.writeFile(
     `${name}/${name}_backend/.gitignore`,
-    `
-node_modules
-.env
+    `node_modules
+    .env
 `
   );
 
