@@ -27,7 +27,7 @@ quick_setup
 👤 **Haider Nakara**
 
 * Github: [@HaiderNakara](https://github.com/HaiderNakara)
-* LinkedIn: [@haider-nakara](https://linkedin.com/in/haider-nakara)
+* LinkedIn: [@haider-nakara](https://www.linkedin.com/in/haider-nakara-9b21131b3/)
 
 ## Show your support
 
