@@ -1,19 +1,13 @@
-<h1 align="center">Welcome to quick_setup 👋</h1>
-<p>
-  <a href="https://www.npmjs.com/package/quick_setup" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/quick_setup.svg">
-  </a>
-  <a href="#" target="_blank">
-    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
-  </a>
-</p>
+# Welcome to quick_setup 👋
+[![Version](https://img.shields.io/npm/v/quick_setup.svg)](https://www.npmjs.com/package/quick_setup)
+[![License: ISC](https://img.shields.io/badge/License-ISC-yellow.svg)](#)
 
 > Command-line interfaces built-in Node.js allow you to automate repetitive tasks like project creation, dependency installation and generating example boilerplate.
 
 ## Install
 
 ```sh
-npm install quick_setup
+npm install -g quick_setup
 ```
 
 ## Usage
@@ -21,6 +15,7 @@ npm install quick_setup
 ```sh
 quick_setup
 ```
+
 
 ## Author
 
