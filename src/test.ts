@@ -13,27 +13,25 @@ export async function test_all(name: string, stackName: string) {
   console.log(chalk.green(`Creating project ${name}`));
   switch (stackName) {
     case "Mern":
-      createMern(name + "_one");
+      await createMern(name + "_one");
     case "Mern + Typescript":
-      createMernTypescript(name + "_two");
+      await createMernTypescript(name + "_two");
     case "React(Typescript) + Nestjs + MongoDb":
-      createReactNestJsMongo(name + "_three");
+      await createReactNestJsMongo(name + "_three");
     case "React":
-      createReact(name + "_four");
+      await createReact(name + "_four");
     case "React(Typescript)":
-      createRectTypescript(name + "_five");
-      break;
+      await createRectTypescript(name + "_five");
     case "Nestjs":
-      createNestJs(name + "_six");
-      break;
+      await createNestJs(name + "_six");
     case "Nestjs + MongoDb":
-      createNestJs(name + "_seven");
-      break;
+      await createNestJs(name + "_seven");
     case "Express(Typescript)":
-      createExpressTypescript(name + "_eight");
-      break;
+      await createExpressTypescript(name + "_eight");
     case "Express":
-      createExpressJavascript(name + "_nine");
+      await createExpressJavascript(name + "_nine");
       break;
   }
 }
+
+test_all("test", "Mern");

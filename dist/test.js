@@ -24,29 +24,26 @@ function test_all(name, stackName) {
         console.log(chalk_1.default.green(`Creating project ${name}`));
         switch (stackName) {
             case "Mern":
-                (0, mern_fn_1.createMern)(name + "_one");
+                yield (0, mern_fn_1.createMern)(name + "_one");
             case "Mern + Typescript":
-                (0, mern_fn_1.createMernTypescript)(name + "_two");
+                yield (0, mern_fn_1.createMernTypescript)(name + "_two");
             case "React(Typescript) + Nestjs + MongoDb":
-                (0, mern_fn_1.createReactNestJsMongo)(name + "_three");
+                yield (0, mern_fn_1.createReactNestJsMongo)(name + "_three");
             case "React":
-                (0, react_fn_1.createReact)(name + "_four");
+                yield (0, react_fn_1.createReact)(name + "_four");
             case "React(Typescript)":
-                (0, react_fn_1.createRectTypescript)(name + "_five");
-                break;
+                yield (0, react_fn_1.createRectTypescript)(name + "_five");
             case "Nestjs":
-                (0, nest_fn_1.createNestJs)(name + "_six");
-                break;
+                yield (0, nest_fn_1.createNestJs)(name + "_six");
             case "Nestjs + MongoDb":
-                (0, nest_fn_1.createNestJs)(name + "_seven");
-                break;
+                yield (0, nest_fn_1.createNestJs)(name + "_seven");
             case "Express(Typescript)":
-                (0, express_fn_1.createExpressTypescript)(name + "_eight");
-                break;
+                yield (0, express_fn_1.createExpressTypescript)(name + "_eight");
             case "Express":
-                (0, express_fn_1.createExpressJavascript)(name + "_nine");
+                yield (0, express_fn_1.createExpressJavascript)(name + "_nine");
                 break;
         }
     });
 }
 exports.test_all = test_all;
+test_all("test", "Mern");

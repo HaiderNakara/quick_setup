@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import chalk from "chalk";
-import { prompt } from "inquirer";
-import * as fs from "fs/promises";
+import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 import { exec } from "child_process";
 import { promisify } from "util";
@@ -18,7 +17,7 @@ let projectName = "projectTry";
 const exec_run = promisify(exec);
 
 async function main() {
-  const answer1 = await prompt({
+  const answer1 = await inquirer.prompt({
     name: "projectName",
     type: "input",
     message: "What is the name of your project?",
@@ -38,7 +37,7 @@ async function main() {
   });
   projectName = answer1.projectName;
 
-  const answer = await prompt({
+  const answer = await inquirer.prompt({
     name: "stackName",
     type: "list",
     message: "What stack do you want to use?",

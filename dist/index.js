@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const chalk_1 = __importDefault(require("chalk"));
-const inquirer_1 = require("inquirer");
+const inquirer_1 = __importDefault(require("inquirer"));
 const nanospinner_1 = require("nanospinner");
 const child_process_1 = require("child_process");
 const util_1 = require("util");
@@ -26,7 +26,7 @@ let projectName = "projectTry";
 const exec_run = (0, util_1.promisify)(child_process_1.exec);
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const answer1 = yield (0, inquirer_1.prompt)({
+        const answer1 = yield inquirer_1.default.prompt({
             name: "projectName",
             type: "input",
             message: "What is the name of your project?",
@@ -45,7 +45,7 @@ function main() {
             },
         });
         projectName = answer1.projectName;
-        const answer = yield (0, inquirer_1.prompt)({
+        const answer = yield inquirer_1.default.prompt({
             name: "stackName",
             type: "list",
             message: "What stack do you want to use?",

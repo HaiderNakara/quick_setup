@@ -1,42 +1,38 @@
 {
   "name": "quick_setup",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "Command-line interfaces built-in Node.js allow you to automate repetitive tasks like project creation, dependency installation and generating example boilerplate.",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ts-node src/test.ts",
     "build": "tsc -p ."
   },
   "keywords": [
-"boilerplate",
-"setup",
-"react",
-"express",
-"nestjs",
-"mongodb",
-"mongoose",
-"rest",
-"api",
-"typescript"
+    "boilerplate",
+    "setup",
+    "react",
+    "express",
+    "nestjs",
+    "mongodb",
+    "mongoose",
+    "rest",
+    "api",
+    "typescript"
   ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^4.1.0",
-    "chalk-animation": "^2.0.2",
-    "figlet": "^1.5.2",
-    "gradient-string": "^2.0.1",
+    "chalk": "^4.1.2",
     "inquirer": "^8.2.4",
-    "nanospinner": "^1.1.0",
-    "nodemon": "^2.0.16",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.4"
+    "nanospinner": "^1.1.0"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
-    "@types/inquirer": "^8.2.1"
+    "@types/inquirer": "^8.2.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
   }
 }
