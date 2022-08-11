@@ -1,6 +1,6 @@
 {
   "name": "quick_setup",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "Command-line interfaces built-in Node.js allow you to automate repetitive tasks like project creation, dependency installation and generating example boilerplate.",
   "main": "dist/index.js",
   "bin": "dist/index.js",
@@ -11,10 +11,16 @@
     "build": "tsc -p ."
   },
   "keywords": [
-"Setup",
-"Express Mongoose boilerplate",
-"NestJS Mongoose boilerplate",
-"RestAPI boilerplate"
+"boilerplate",
+"setup",
+"react",
+"express",
+"nestjs",
+"mongodb",
+"mongoose",
+"rest",
+"api",
+"typescript"
   ],
   "author": "",
   "license": "ISC",
