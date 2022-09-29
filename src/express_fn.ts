@@ -333,6 +333,170 @@ export async function createExpress_Js(name: string) {
     .env
 `
   );
+  await fs.writeFile(
+    `${name}/${name}_backend/insonmnia.json`,
+    `{
+      "_type": "export",
+      "__export_format": 4,
+      "__export_date": "2022-09-29T13:51:21.634Z",
+      "__export_source": "insomnia.desktop.app:v2022.5.0",
+      "resources": [
+        {
+          "_id": "req_03f33229b6d342909c0c14c80e133c8d",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1664459378642,
+          "created": 1656917487445,
+          "url": "http://localhost:3000/cat/62b40e7d409c13b3c971623a",
+          "name": "New Request",
+          "description": "",
+          "method": "PUT",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\t\"name\": \"bob\",\n\t\t\"age\": 10,\n\t\t\"breed\": \"lol\",\n\t\"color\": \"white\",\n\t\"weight\":225\n}"
+          },
+          "parameters": [],
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json",
+              "id": "pair_2f8917d6cd9d491c8a95e18531de09b9"
+            }
+          ],
+          "authentication": {},
+          "metaSortKey": -1656917487445,
+          "isPrivate": false,
+          "settingStoreCookies": true,
+          "settingSendCookies": true,
+          "settingDisableRenderRequestBody": false,
+          "settingEncodeUrl": true,
+          "settingRebuildPath": true,
+          "settingFollowRedirects": "global",
+          "_type": "request"
+        },
+        {
+          "_id": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "parentId": null,
+          "modified": 1656917423100,
+          "created": 1656917423100,
+          "name": "cat",
+          "description": "",
+          "scope": "collection",
+          "_type": "workspace"
+        },
+        {
+          "_id": "req_a97d0ba2eec24f51a1d70df12480c994",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1664459377882,
+          "created": 1656917464576,
+          "url": "http://localhost:3000/cat",
+          "name": "New Request",
+          "description": "",
+          "method": "POST",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\t\"name\": \"bob12\",\n\t\t\"age\": 10,\n\t\t\"breed\": \"lol12\",\n\t\"color\": \"white12\",\n\t\"weight\":15\n}"
+          },
+          "parameters": [],
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json",
+              "id": "pair_15ecb2e08fda4a67b5c42b45b19e46b9"
+            }
+          ],
+          "authentication": {},
+          "metaSortKey": -1656917464576,
+          "isPrivate": false,
+          "settingStoreCookies": true,
+          "settingSendCookies": true,
+          "settingDisableRenderRequestBody": false,
+          "settingEncodeUrl": true,
+          "settingRebuildPath": true,
+          "settingFollowRedirects": "global",
+          "_type": "request"
+        },
+        {
+          "_id": "req_f66912ff85924d1ba83b4ed2e9d994a5",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1656917458803,
+          "created": 1656917453807,
+          "url": "http://localhost:3000/cat",
+          "name": "New Request",
+          "description": "",
+          "method": "GET",
+          "body": {},
+          "parameters": [],
+          "headers": [],
+          "authentication": {},
+          "metaSortKey": -1656917453807,
+          "isPrivate": false,
+          "settingStoreCookies": true,
+          "settingSendCookies": true,
+          "settingDisableRenderRequestBody": false,
+          "settingEncodeUrl": true,
+          "settingRebuildPath": true,
+          "settingFollowRedirects": "global",
+          "_type": "request"
+        },
+        {
+          "_id": "req_443a29fc5eb24a298eb7b1dacec405b7",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1664459382760,
+          "created": 1664459375321,
+          "url": "http://localhost:3000/cat/62b40e7d409c13b3c971623a",
+          "name": "get by id",
+          "description": "",
+          "method": "GET",
+          "body": {},
+          "parameters": [],
+          "headers": [],
+          "authentication": {},
+          "metaSortKey": -1656660818294,
+          "isPrivate": false,
+          "settingStoreCookies": true,
+          "settingSendCookies": true,
+          "settingDisableRenderRequestBody": false,
+          "settingEncodeUrl": true,
+          "settingRebuildPath": true,
+          "settingFollowRedirects": "global",
+          "_type": "request"
+        },
+        {
+          "_id": "env_e115228036d708fb149d9481df245a80e055a2e7",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1656917423135,
+          "created": 1656917423135,
+          "name": "Base Environment",
+          "data": {},
+          "dataPropertyOrder": null,
+          "color": null,
+          "isPrivate": false,
+          "metaSortKey": 1656917423135,
+          "_type": "environment"
+        },
+        {
+          "_id": "jar_e115228036d708fb149d9481df245a80e055a2e7",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1656917423139,
+          "created": 1656917423139,
+          "name": "Default Jar",
+          "cookies": [],
+          "_type": "cookie_jar"
+        },
+        {
+          "_id": "spc_130396feec81412a8da39efb75ed61eb",
+          "parentId": "wrk_db3ad3b37c724e268bf5edf04d22669d",
+          "modified": 1656917423125,
+          "created": 1656917423125,
+          "fileName": "cat",
+          "contents": "",
+          "contentType": "yaml",
+          "_type": "api_spec"
+        }
+      ]
+    }`,
+  );
+
 
   await exec_run(
     `cd ${name}/${name}_backend && npm install express mongoose dotenv nodemon body-parser cors`
