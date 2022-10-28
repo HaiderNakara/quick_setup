@@ -352,7 +352,13 @@ export async function createExpress_Js(name: string) {
           "method": "PUT",
           "body": {
             "mimeType": "application/json",
-            "text": "{\n\t\t\"name\": \"bob\",\n\t\t\"age\": 10,\n\t\t\"breed\": \"lol\",\n\t\"color\": \"white\",\n\t\"weight\":225\n}"
+            "text": {
+              "name": "bob",
+              "age": 10,
+              "breed": "lol",
+              "color": "white",
+              "weight": 225
+            }
           },
           "parameters": [],
           "headers": [
@@ -394,7 +400,13 @@ export async function createExpress_Js(name: string) {
           "method": "POST",
           "body": {
             "mimeType": "application/json",
-            "text": "{\n\t\t\"name\": \"bob12\",\n\t\t\"age\": 10,\n\t\t\"breed\": \"lol12\",\n\t\"color\": \"white12\",\n\t\"weight\":15\n}"
+            "text": {
+              "name": "bob12",
+              "age": 10,
+              "breed": "lol12",
+              "color": "white12",
+              "weight": 15
+            }
           },
           "parameters": [],
           "headers": [
