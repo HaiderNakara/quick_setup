@@ -2,6 +2,7 @@ import { exec } from "child_process";
 import { promisify } from "util";
 import { createDict } from "./util_fn";
 import * as fs from "fs/promises";
+import { createPostmanFile } from "./postman";
 const exec_run = promisify(exec);
 export async function createExpressTypescript(name: string) {
   try {
@@ -41,11 +42,11 @@ export async function createExpress_Ts(name: string) {
       res.send("Hello World!");
     });
     app.use("/cat", cat);
-    mongoose.connect(process.env.DB_CONNECTION!, {}, () => {
+    mongoose.connect(process.env.DB_CONNECTION!, {}).then(() => {
       app.listen(process.env.PORT || 5000, () => {
-        console.log("Server started at port ${process.env.PORT || 5000}");
+        console.log("Server started at port " + process.env.PORT || 5000);
       });
-    });
+    });    
     `
   );
   await fs.writeFile(
@@ -197,7 +198,7 @@ export async function createExpress_Ts(name: string) {
     `node_modules
      .env`
   );
-
+  await createPostmanFile(`${name}/${name}_backend`);
   await exec_run(
     `cd ${name}/${name}_backend && npm install express mongoose dotenv body-parser cors && npm i -D typescript @types/express @types/node @types/cors nodemon ts-node && cd ..`
   );
@@ -224,7 +225,7 @@ export async function createExpress_Js(name: string) {
       res.send("Hello World");
     });
     app.use("/cat", cat);
-    mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
+    mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }).then(() => {
       app.listen(process.env.PORT || 5000, () => {
         console.log("Server started at port 5000");
       });
@@ -333,8 +334,11 @@ export async function createExpress_Js(name: string) {
     .env
 `
   );
+  await createPostmanFile(`${name}/${name}_backend`);
 
   await exec_run(
     `cd ${name}/${name}_backend && npm install express mongoose dotenv nodemon body-parser cors`
   );
 }
+
+

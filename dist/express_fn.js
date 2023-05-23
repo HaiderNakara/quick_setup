@@ -37,6 +37,7 @@ const child_process_1 = require("child_process");
 const util_1 = require("util");
 const util_fn_1 = require("./util_fn");
 const fs = __importStar(require("fs/promises"));
+const postman_1 = require("./postman");
 const exec_run = (0, util_1.promisify)(child_process_1.exec);
 function createExpressTypescript(name) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -81,11 +82,11 @@ function createExpress_Ts(name) {
       res.send("Hello World!");
     });
     app.use("/cat", cat);
-    mongoose.connect(process.env.DB_CONNECTION!, {}, () => {
+    mongoose.connect(process.env.DB_CONNECTION!, {}).then(() => {
       app.listen(process.env.PORT || 5000, () => {
-        console.log("Server started at port ${process.env.PORT || 5000}");
+        console.log("Server started at port " + process.env.PORT || 5000);
       });
-    });
+    });    
     `);
         yield fs.writeFile(`${name}/${name}_backend/src/controllers/cat.ts`, `import cat from "../models/cat";
     import { Request, Response } from "express";
@@ -212,6 +213,7 @@ function createExpress_Ts(name) {
      DB_CONNECTION=your_mongo_connection_string`);
         yield fs.writeFile(`${name}/${name}_backend/.gitignore`, `node_modules
      .env`);
+        yield (0, postman_1.createPostmanFile)(`${name}/${name}_backend`);
         yield exec_run(`cd ${name}/${name}_backend && npm install express mongoose dotenv body-parser cors && npm i -D typescript @types/express @types/node @types/cors nodemon ts-node && cd ..`);
     });
 }
@@ -235,7 +237,7 @@ function createExpress_Js(name) {
       res.send("Hello World");
     });
     app.use("/cat", cat);
-    mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
+    mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }).then(() => {
       app.listen(process.env.PORT || 5000, () => {
         console.log("Server started at port 5000");
       });
@@ -325,6 +327,7 @@ function createExpress_Js(name) {
         yield fs.writeFile(`${name}/${name}_backend/.gitignore`, `node_modules
     .env
 `);
+        yield (0, postman_1.createPostmanFile)(`${name}/${name}_backend`);
         yield exec_run(`cd ${name}/${name}_backend && npm install express mongoose dotenv nodemon body-parser cors`);
     });
 }
