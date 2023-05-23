@@ -21,7 +21,7 @@ export async function createExpressJavascript(name: string) {
 }
 export async function createExpress_Ts(name: string) {
   await exec_run(
-    `cd ${name} &&  mkdir ${name}_backend && cd ${name}_backend && mkdir src && cd src && mkdir controllers, models, routes && cd ../..`
+    `cd ${name} &&  mkdir ${name}_backend && cd ${name}_backend && mkdir src && cd src && mkdir controllers && mkdir models && mkdir routes && cd ../..`
   );
   await fs.writeFile(
     `${name}/${name}_backend/src/index.ts`,

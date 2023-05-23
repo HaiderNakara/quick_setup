@@ -64,7 +64,7 @@ function createExpressJavascript(name) {
 exports.createExpressJavascript = createExpressJavascript;
 function createExpress_Ts(name) {
     return __awaiter(this, void 0, void 0, function* () {
-        yield exec_run(`cd ${name} &&  mkdir ${name}_backend && cd ${name}_backend && mkdir src && cd src && mkdir controllers, models, routes && cd ../..`);
+        yield exec_run(`cd ${name} &&  mkdir ${name}_backend && cd ${name}_backend && mkdir src && cd src && mkdir controllers && mkdir models && mkdir routes && cd ../..`);
         yield fs.writeFile(`${name}/${name}_backend/src/index.ts`, `import express from "express";
     import mongoose from "mongoose";
     import dotenv from "dotenv";
