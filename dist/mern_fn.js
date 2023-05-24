@@ -9,11 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createReactNestJsMongo = exports.createMernTypescript = exports.createMern = void 0;
+exports.createReactNestJsMongoVite = exports.createMernViteTypescript = exports.createMernVite = exports.createReactNestJsMongo = exports.createMernTypescript = exports.createMern = void 0;
 const express_fn_1 = require("./express_fn");
 const nest_fn_1 = require("./nest_fn");
 const react_fn_1 = require("./react_fn");
 const util_fn_1 = require("./util_fn");
+const vite_fn_1 = require("./vite_fn");
 function createMern(name) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -53,3 +54,45 @@ function createReactNestJsMongo(name) {
     });
 }
 exports.createReactNestJsMongo = createReactNestJsMongo;
+// "Mern(Vite)",
+//       "Mern(Vite) + Typescript",
+//       "React(Vite-ts) + Nestjs + MongoDb",
+function createMernVite(name) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield (0, util_fn_1.createDict)(name);
+            yield (0, express_fn_1.createExpress_Js)(name);
+            yield (0, vite_fn_1.createReact_Vite)(name);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.createMernVite = createMernVite;
+function createMernViteTypescript(name) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield (0, util_fn_1.createDict)(name);
+            yield (0, express_fn_1.createExpress_Ts)(name);
+            yield (0, vite_fn_1.createReact_Vite_Ts)(name);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.createMernViteTypescript = createMernViteTypescript;
+function createReactNestJsMongoVite(name) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            yield (0, util_fn_1.createDict)(name);
+            yield (0, vite_fn_1.createReact_Vite_Ts)(name);
+            yield (0, nest_fn_1.create_nestjs)(name);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    });
+}
+exports.createReactNestJsMongoVite = createReactNestJsMongoVite;

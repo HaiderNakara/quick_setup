@@ -10,9 +10,13 @@ import { createNestJs } from "./nest_fn";
 import {
   createMern,
   createMernTypescript,
+  createMernVite,
+  createMernViteTypescript,
   createReactNestJsMongo,
+  createReactNestJsMongoVite,
 } from "./mern_fn";
 import { test_all } from "./test";
+import { createReact_Vite_Ts, createViteReact } from "./vite_fn";
 let projectName = "projectTry";
 const exec_run = promisify(exec);
 
@@ -44,9 +48,14 @@ async function main() {
     choices: [
       "Mern",
       "Mern + Typescript",
+      "Mern(Vite)",
+      "Mern(Vite) + Typescript",
       "React(Typescript) + Nestjs + MongoDb",
       "React",
       "React(Typescript)",
+      "React(Vite-ts) + Nestjs + MongoDb",
+      "React(Vite)",
+      "React(Vite-ts)",
       "Nestjs",
       "Nestjs + MongoDb",
       "Express(Typescript)",
@@ -72,6 +81,12 @@ async function createProject(name: string, stackName: string) {
     case "Mern + Typescript":
       await createMernTypescript(name);
       break;
+    case "Mern(Vite)":
+      await createMernVite(name);
+      break;
+    case "Mern(Vite) + Typescript":
+      await createMernViteTypescript(name);
+      break;
     case "React(Typescript) + Nestjs + MongoDb":
       await createReactNestJsMongo(name);
       break;
@@ -80,6 +95,15 @@ async function createProject(name: string, stackName: string) {
       break;
     case "React(Typescript)":
       await createRectTypescript(name);
+      break;
+    case "React(Vite-ts) + Nestjs + MongoDb":
+      await createReactNestJsMongoVite(name);
+      break;
+    case "React(Vite)":
+      await createViteReact(name);
+      break;
+    case "React(Vite-ts)":
+      await createReact_Vite_Ts(name);
       break;
     case "Nestjs":
       await createNestJs(name);

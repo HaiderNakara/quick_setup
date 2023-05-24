@@ -22,6 +22,7 @@ const react_fn_1 = require("./react_fn");
 const express_fn_1 = require("./express_fn");
 const nest_fn_1 = require("./nest_fn");
 const mern_fn_1 = require("./mern_fn");
+const vite_fn_1 = require("./vite_fn");
 let projectName = "projectTry";
 const exec_run = (0, util_1.promisify)(child_process_1.exec);
 function main() {
@@ -52,9 +53,14 @@ function main() {
             choices: [
                 "Mern",
                 "Mern + Typescript",
+                "Mern(Vite)",
+                "Mern(Vite) + Typescript",
                 "React(Typescript) + Nestjs + MongoDb",
                 "React",
                 "React(Typescript)",
+                "React(Vite-ts) + Nestjs + MongoDb",
+                "React(Vite)",
+                "React(Vite-ts)",
                 "Nestjs",
                 "Nestjs + MongoDb",
                 "Express(Typescript)",
@@ -81,6 +87,12 @@ function createProject(name, stackName) {
             case "Mern + Typescript":
                 yield (0, mern_fn_1.createMernTypescript)(name);
                 break;
+            case "Mern(Vite)":
+                yield (0, mern_fn_1.createMernVite)(name);
+                break;
+            case "Mern(Vite) + Typescript":
+                yield (0, mern_fn_1.createMernViteTypescript)(name);
+                break;
             case "React(Typescript) + Nestjs + MongoDb":
                 yield (0, mern_fn_1.createReactNestJsMongo)(name);
                 break;
@@ -89,6 +101,15 @@ function createProject(name, stackName) {
                 break;
             case "React(Typescript)":
                 yield (0, react_fn_1.createRectTypescript)(name);
+                break;
+            case "React(Vite-ts) + Nestjs + MongoDb":
+                yield (0, mern_fn_1.createReactNestJsMongoVite)(name);
+                break;
+            case "React(Vite)":
+                yield (0, vite_fn_1.createViteReact)(name);
+                break;
+            case "React(Vite-ts)":
+                yield (0, vite_fn_1.createReact_Vite_Ts)(name);
                 break;
             case "Nestjs":
                 yield (0, nest_fn_1.createNestJs)(name);

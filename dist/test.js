@@ -18,6 +18,7 @@ const express_fn_1 = require("./express_fn");
 const mern_fn_1 = require("./mern_fn");
 const nest_fn_1 = require("./nest_fn");
 const react_fn_1 = require("./react_fn");
+const vite_fn_1 = require("./vite_fn");
 function test_all(name, stackName) {
     return __awaiter(this, void 0, void 0, function* () {
         console.clear();
@@ -27,20 +28,30 @@ function test_all(name, stackName) {
                 yield (0, mern_fn_1.createMern)(name + "_one");
             case "Mern + Typescript":
                 yield (0, mern_fn_1.createMernTypescript)(name + "_two");
+            case "Mern(Vite)":
+                yield (0, mern_fn_1.createMernVite)(name + "_three");
+            case "Mern(Vite) + Typescript":
+                yield (0, mern_fn_1.createMernViteTypescript)(name + "_four");
             case "React(Typescript) + Nestjs + MongoDb":
-                yield (0, mern_fn_1.createReactNestJsMongo)(name + "_three");
+                yield (0, mern_fn_1.createReactNestJsMongo)(name + "_five");
             case "React":
-                yield (0, react_fn_1.createReact)(name + "_four");
+                yield (0, react_fn_1.createReact)(name + "_six");
             case "React(Typescript)":
-                yield (0, react_fn_1.createRectTypescript)(name + "_five");
+                yield (0, react_fn_1.createRectTypescript)(name + "_seven");
+            case "React(Vite-ts) + Nestjs + MongoDb":
+                yield (0, mern_fn_1.createReactNestJsMongoVite)(name + "_eight");
+            case "React(Vite)":
+                yield (0, vite_fn_1.createViteReact)(name + "_nine");
+            case "React(Vite-ts)":
+                yield (0, vite_fn_1.createViteReactTypescript)(name + "_ten");
             case "Nestjs":
-                yield (0, nest_fn_1.createNestJs)(name + "_six");
+                yield (0, nest_fn_1.createNestJs)(name + "_eleven");
             case "Nestjs + MongoDb":
-                yield (0, nest_fn_1.createNestJs)(name + "_seven");
+                yield (0, nest_fn_1.createNestJs)(name + "_twelve");
             case "Express(Typescript)":
-                yield (0, express_fn_1.createExpressTypescript)(name + "_eight");
+                yield (0, express_fn_1.createExpressTypescript)(name + "_thirteen");
             case "Express":
-                yield (0, express_fn_1.createExpressJavascript)(name + "_nine");
+                yield (0, express_fn_1.createExpressJavascript)(name + "_fourteen");
                 break;
         }
     });
